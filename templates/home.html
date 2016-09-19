@@ -4,9 +4,10 @@
   <title>OnePush</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href=" {{ url_for('static', filename='bootstrap-3.3.7-dist/css/bootstrap.min.css') }}">
+  <script src=" {{ url_for('static', filename='bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>	
+
+
   <style>
     .navbar {
       margin-bottom: 0;
@@ -81,11 +82,8 @@
   <div class="row content">
     <div class="col-sm-8 text-left">
       <h1>Welcome</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <hr>
-      <h3>Test</h3>
-      <p>Lorem ipsum...</p>
-
+      
       {% for r in response['websites'] %}
         <div class="row portfolio">
           <div class="col-md-3">
@@ -126,26 +124,7 @@
             </div>
             </div>
         </form>
-      </div>
-      <div class="well">
-          <form class="form-horizontal">
-            <div class="control-group">
-                <label class="control-label" for="inputType">Type</label>
-                <div class="controls">
-                    <input type="text" id="inputType" placeholder="Type">
-                </div>
-            </div>
-            <div class="control-group">
-                <span class="control-label">Metadata</span>
-                <div class="controls form-inline">
-                    <label for="inputKey">Key</label>
-                    <input type="text" class="input-small" placeholder="Key" id="inputKey">
-                    <label for="inputValue">Value</label>
-                    <input type="password" class="input-small" placeholder="Value" id="inputValue">
-                </div>
-            </div>
-          </form>
-      </div>
+      </div>      
     </div>
   </div>
 </div>
