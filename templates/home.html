@@ -89,10 +89,11 @@
       {% for r in response['websites'] %}
         <div class="row portfolio">
           <div class="col-md-3">
-              <img class='' src="{{ r[''] }}">
+              <img class='' src="{{ r['favicon_image'] }}">
           </div>
           <div class="col-md-6">
-              <p></p>
+              <p>{{ r['title']}}</p>
+              <p>{{ r['tag']}} | <a href="{{r['url_address']}}" target="_blank">{{r['url_address']}}</a></p>
           </div>
           <div class="col-md-3">
               asdasdadda asdasd
