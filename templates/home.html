@@ -34,6 +34,12 @@
     .portfolio{
         background-color:#f1f1f1;
         border: 1px solid grey;
+        margin-left: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        position: relative;
+        height:60px;
     }
 
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -48,6 +54,10 @@
     .portfolio img {
         height: 40px;
         width: 40px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        border-radius: 40px;
+        position: absolute;
     }
 
   </style>
@@ -86,12 +96,12 @@
       
       {% for r in response['websites'] %}
         <div class="row portfolio">
-          <div class="col-md-3">
-              <img class='' src="{{ r['favicon_image'] }}">
+          <div class="col-md-2">
+              <img src="{{ r['favicon_image'] }}">
           </div>
-          <div class="col-md-9">
+          <div class="col-md-10">
               <p>{{ r['title']}}</p>
-              <p>{{ r['tag']}} | <a href="{{r['url_address']}}" target="_blank">{{r['url_address']}}</a> <span style="text-algin">| Likes 1 <span></p>
+              <p>{{ r['tag']}} | <a href="{{r['url_address']}}" target="_blank">{{r['url_address']}}</a> <span style="text-algin">| <span class="glyphicon glyphicon-thumbs-up"></span> 1</p>
           </div>
         </div>
       {% endfor %}
