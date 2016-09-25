@@ -6,7 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href=" {{ url_for('static', filename='bootstrap-3.3.7-dist/css/bootstrap.min.css') }}">
   <script src=" {{ url_for('static', filename='bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>	
-
+  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+  
+  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+  <script>
+	  // Initialize Firebase
+  	  var config = {
+		apiKey: "AIzaSyBbP4qK4HGVa3XGKVv4kF3NJlds_1wnAi4",
+		authDomain: "topplrchallengesept18.firebaseapp.com",
+		databaseURL: "https://topplrchallengesept18.firebaseio.com",
+		storageBucket: "topplrchallengesept18.appspot.com",
+		messagingSenderId: "288435119052"
+	};
+  firebase.initializeApp(config);
+  </script>
 
   <style>
     .navbar {
@@ -94,14 +107,14 @@
       <h1>Welcome</h1>
       <hr>
       
-      {% for r in response['websites'] %}
+      {% for r in response %}
         <div class="row portfolio">
           <div class="col-md-2">
-              <img src="{{ r['favicon_image'] }}">
+              <img src="{{ response[r]['favicon_image'] }}">
           </div>
           <div class="col-md-10">
-              <p>{{ r['title']}}</p>
-              <p>{{ r['tag']}} | <span class="glyphicon glyphicon-link"></span> <a href="{{r['url_address']}}" target="_blank">{{r['url_address']}}</a> <span style="text-algin">| <span class="glyphicon glyphicon-thumbs-up"></span> 1</p>
+              <p>{{ response[r]['title']}}</p>
+              <p>{{ response[r]['tag']}} | <span class="glyphicon glyphicon-link"></span> <a href="{{response[r]['url_address']}}" target="_blank">{{response[r]['url_address']}}</a> <span style="text-algin">| <span class="glyphicon glyphicon-thumbs-up"></span> 1</p>
           </div>
         </div>
       {% endfor %}
@@ -120,18 +133,18 @@
     <div class="col-sm-4">
       <div class="well">
         <h3>Contribute/Add Website</h3>
-        <form class='form-horizontal' id='push-web-data' action="" method='post'>
+        <form class='form-horizontal' id='push-web-data' action="{{ url_for('add_new_profile') }}" method='post'>
             <div class="row">
-                <div class="col-md-8">
-                <input type='text' id='title' class='form-control' placeholder="title">
-            </div>
-            <div class="col-md-8">
-                <input type='text' id='url_address' class='form-control' placeholder="url">
-            </div>
-            <div class="col-md-8">
-                <input type='text' id='tag' class='form-control' placeholder="tag">
-                <button type="submit form-control" class="btn btn-success">Push</button>
-            </div>
+                <div class="col-md-12">
+                <input type='text' id='title' name='title' class='form-control' placeholder="title">
+            	</div>
+		        <div class="col-md-12">
+		            <input type='text' id='url_address' name='url_address' class='form-control' placeholder="url">
+		        </div>
+		        <div class="col-md-12">
+		            <input type='text' id='tag' name='tag' class='form-control' placeholder="tag">
+	            </div>
+		        <button type="submit form-control text-center" class="btn btn-success">Push</button>            
             </div>
         </form>
       </div>      
